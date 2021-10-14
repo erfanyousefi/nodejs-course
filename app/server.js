@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose")
 const http = require("http")
 const PORT = 3550;
-const taskRouter = require("./routes/routes")
+const IndexRouter = require("./routes/routes")
 module.exports = class Application {
     constructor() {
         this.applicationConfig();
@@ -27,7 +27,7 @@ module.exports = class Application {
             .catch(erro => console.log("Cannot Connect To DB"))
     }
     routesConfig() {
-        app.use("/task", taskRouter)
+        app.use("/", IndexRouter)
     }
     errorHandling() {
         app.use("*", (req, res, next) => {

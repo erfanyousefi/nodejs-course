@@ -1,9 +1,6 @@
-const autoBind = require("auto-bind");
-const taskModel = require("../models/task")
-module.exports = new class taskController {
-    constructor(){
-        autoBind(this)
-    }
+const taskModel = require("../models/task");
+const Controller = require("./controller");
+module.exports = new class taskController extends Controller {
     async insert(req, res, next) {
         try {
             const { title } = req.body;
